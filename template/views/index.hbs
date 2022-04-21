@@ -1,0 +1,77 @@
+<!-- HTML display for showing home page -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{!-- <meta charset="UTF-8"> --}}
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  	{{!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script> --}}
+	<link rel="stylesheet" href="/css/a.css" type="text/css">
+	<link rel="stylesheet" href="/css/b.css">
+	<script src="/css/c.js"></script>
+  	<title>Meme stream</title>
+  <style>
+		body{
+			background-image: url('https://cdn.wallpapersafari.com/19/2/ikudw1.jpg') ;
+			height: 100vh;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-position: center;
+			background-size: cover;
+			z-index: -1;
+		}
+		.navbar{
+			background-color: rgba(0,0,0,0.7) !important;
+		}
+		.create{
+			border:1px brown solid;
+			color:white; 
+			max-width : 800px !important;
+			margin-top:2px;
+		}
+  </style>
+</head>
+<body>
+
+	{{>navbar}}
+	<!-- Button trigger modal -->
+                
+	<div class = "mx-auto sticky-top" style="z-index: 100; max-width:400px;">
+		<button class="btn btn-success create btn-block" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+			Create meme
+		</button>
+	</div>
+				
+	<!-- Modal -->
+	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="z-index: 100000 !important;">
+		<div class="modal-dialog modal-lg" >
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="staticBackdropLabel" ><strong>Create meme</strong></h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				{{>postMemeForm}}
+			</div>
+			</div>
+		</div>
+	</div>
+
+	{{#each data}}		
+		<div style="padding-top: 2px;">{{>memeCards}}</div>
+	{{/each}}
+</body>
+<script>
+	if('{{message}}')
+		alert(`{{message}}`)
+
+</script>
+</html>
+
+
+
+
+
